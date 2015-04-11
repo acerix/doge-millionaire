@@ -46,7 +46,6 @@ def find_winner(suffix):
     while 1:
 
         test_suffix = tuple(suffix)
-        print('')
 
         for i in range(max_permutations):
 
@@ -54,9 +53,6 @@ def find_winner(suffix):
 
             if (private_key_suffix_is_valid(test_suffix)):
                 return test_suffix
-
-            print(b2a_base58(suffix_to_bytes(test_suffix)))
-
 
 
 
@@ -95,6 +91,8 @@ def private_key_suffix_is_valid(private_key_digits):
         #print(len(keys_tried))
         return False
     keys_tried.add(key_hash)
+
+    print(b2a_base58(suffix_to_bytes(private_key_digits)))
 
     # convert to bytes
     r = suffix_to_bytes(private_key_digits)
